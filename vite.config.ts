@@ -1,28 +1,7 @@
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
 import { defineConfig } from "vite";
-
-const plugins = [react(), tailwindcss()];
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins,
-  resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-    },
-  },
-  root: path.resolve(import.meta.dirname, "client"),
-  publicDir: path.resolve(import.meta.dirname, "client", "public"),
-  build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
-    emptyOutDir: true,
-    target: "esnext",
-    minify: "esbuild",
-    sourcemap: false,
-  },
-  server: {
-    host: true,
-    port: 5173,
-  },
+  plugins: [react()],
 });
+
